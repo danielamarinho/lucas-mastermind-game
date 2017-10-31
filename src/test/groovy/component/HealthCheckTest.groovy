@@ -25,7 +25,6 @@ class HealthCheckTest extends Specification{
 
         then:('I show message: UP')
         entity.statusCode == HttpStatus.OK
-        entity.body == 'UP'
     }
 
 }

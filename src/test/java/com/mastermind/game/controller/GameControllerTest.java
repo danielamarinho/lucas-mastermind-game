@@ -10,16 +10,16 @@ import static org.junit.Assert.assertThat;
 
 public class GameControllerTest {
 
-    private GameController gameController;
+    private HealthController healthControllerr;
 
     @Before
     public void setUp() {
-        this.gameController = new GameController();
+        this.healthControllerr = new HealthController();
     }
 
     @Test
     public void shouldReturnHttpStatusOkWhenHealthIsUp() {
-        ResponseEntity<String> httpStatus = this.gameController.getHealth();
+        ResponseEntity<String> httpStatus = this.healthControllerr.getHealth();
         assertThat(httpStatus.getStatusCode(), is(HttpStatus.OK));
     }
 }
