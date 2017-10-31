@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class GameControllerTest {
+public class HealthControllerTest {
 
     private HealthController healthControllerr;
 
