@@ -1,5 +1,9 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD target/lucas-mastermind-game-0.0.1-SNAPSHOT.jar app.jar
-ENV JAVA_OPTS=""
-ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+FROM java:8-jre
+MAINTAINER Lucas Dornelas <lmdornelas@gmail.com>
+
+ADD  . /app
+CMD ["java", "-Xmx200m", "-jar", "/app/lucas-mastermind-game-0.0.1-SNAPSHOT.jar"]
+
+HEALTHCHECK --interval=10s --timeout=3s CMD curl -f http://localhost:8888/health || exit 1
+
+EXPOSE 8888
