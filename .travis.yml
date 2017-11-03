@@ -2,7 +2,19 @@ language: java
 jdk:
   - oraclejdk8
 
-sudo: required
+sudo: true
 
 services:
   - docker
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+after_success:
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker build -t lmdornelas/lucas-mastermind-game.git .
+  - docker push lmdornelas/lucas-mastermind-game.git
