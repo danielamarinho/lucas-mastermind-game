@@ -4,4 +4,4 @@ MAINTAINER Lucas Dornelas <lmdornelas@gmail.com>
 
 ADD ./target/lucas-mastermind-game-0.0.1-SNAPSHOT.jar /app.jar
 
-CMD java -jar app.jar -Dserver.port=$PORT
+CMD java -Dserver.port=$PORT -jar /app.jar

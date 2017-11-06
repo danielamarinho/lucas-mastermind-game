@@ -46,3 +46,7 @@ task buildDocker(type: Docker, dependsOn: build) {
         }
     }
 }
+
+task dockerRun(type: Exec, dependsOn: buildDocker) {
+    commandLine 'docker-compose', 'up', '--force-recreate'
+}
