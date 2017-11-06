@@ -15,10 +15,6 @@ branches:
     - master
 
 after_success:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker build -t lmdornelas/lucas-mastermind-game.git .
-  - docker push lmdornelas/lucas-mastermind-game.git
-
-  - docker login --username=_ --password="$HEROKU_KEY" registry.heroku.com
-  - docker build -t registry.heroku.com/lucas-mastermind-game/web .
+  - ./gradlew buildDocker
+  - docker login --username=_ --password=$HEROKU_KEY registry.heroku.com
   - docker push registry.heroku.com/lucas-mastermind-game/web

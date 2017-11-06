@@ -1,8 +1,7 @@
-FROM java:8-jre
+FROM openjdk:8-jre-alpine
+
 MAINTAINER Lucas Dornelas <lmdornelas@gmail.com>
 
-ADD  . /app
-CMD ROCKET_ADDRESS=0.0.0.0 ROCKET_PORT=$PORT /app/target/lucas-mastermind-game
+ADD ./target/lucas-mastermind-game-0.0.1-SNAPSHOT.jar /app.jar
 
-ENV PORT 8888
-
+CMD java -jar app.jar -Dserver.port=$PORT

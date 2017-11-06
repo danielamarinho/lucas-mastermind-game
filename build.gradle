@@ -37,7 +37,7 @@ dependencies {
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = jar.baseName
+    tag = 'registry.heroku.com/lucas-mastermind-game/web'
     dockerfile = file('Dockerfile')
     doFirst {
         copy {
