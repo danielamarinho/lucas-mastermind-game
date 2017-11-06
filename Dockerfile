@@ -2,8 +2,7 @@ FROM java:8-jre
 MAINTAINER Lucas Dornelas <lmdornelas@gmail.com>
 
 ADD  . /app
-CMD ["java", "-Xmx200m", "-jar", "/app/lucas-mastermind-game-0.0.1-SNAPSHOT.jar"]
+CMD ROCKET_ADDRESS=0.0.0.0 ROCKET_PORT=$PORT /app/target/lucas-mastermind-game
 
-HEALTHCHECK --interval=10s --timeout=3s CMD curl -f http://localhost:8888/health || exit 1
+ENV PORT 8888
 
-EXPOSE 8888
