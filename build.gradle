@@ -38,6 +38,7 @@ dependencies {
 
 task buildDocker(type: Docker, dependsOn: build) {
     tag = 'registry.heroku.com/lucas-mastermind-game/web'
+    tag = 'registry.heroku.com/lucas-mastermind-game-dev/web'
     dockerfile = file('Dockerfile')
     doFirst {
         copy {
