@@ -20,3 +20,4 @@ after_success:
   - docker push registry.heroku.com/lucas-mastermind-game/web
 
   - docker push registry.heroku.com/lucas-mastermind-game-dev/web
+  - docker push registry.heroku.com/lucas-mastermind-game-qa/web
