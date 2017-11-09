@@ -1,5 +1,8 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD target/lucas-mastermind-game-0.0.1-SNAPSHOT.jar app.jar
-ENV JAVA_OPTS=""
-ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+FROM openjdk:8-jre-alpine
+
+MAINTAINER Lucas Dornelas <lmdornelas@gmail.com>
+
+ADD ./target/lucas-mastermind-game-0.0.1-SNAPSHOT.jar /app.jar
+
+CMD java $JAVA_OPTS -Dserver.address=0.0.0.0 -Dserver.port=$PORT -jar /app.jar
+

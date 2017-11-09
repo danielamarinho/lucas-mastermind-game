@@ -37,7 +37,9 @@ dependencies {
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = jar.baseName
+    tag = 'registry.heroku.com/lucas-mastermind-game/web'
+    tag = 'registry.heroku.com/lucas-mastermind-game-dev/web'
+    tag = 'registry.heroku.com/lucas-mastermind-game-qa/web'
     dockerfile = file('Dockerfile')
     doFirst {
         copy {
@@ -45,4 +47,8 @@ task buildDocker(type: Docker, dependsOn: build) {
             into "${stageDir}/target"
         }
     }
+}
+
+task dockerRun(type: Exec, dependsOn: buildDocker) {
+    commandLine 'docker-compose', 'up', '--force-recreate'
 }

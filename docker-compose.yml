@@ -1,0 +1,8 @@
+version: '2'
+services:
+  mastermind:
+    image: registry.heroku.com/lucas-mastermind-game/web:0.0.1-SNAPSHOT
+    environment:
+      PORT: 8081
+    ports:
+      - 8081:8081

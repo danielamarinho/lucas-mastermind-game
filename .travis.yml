@@ -1,3 +1,23 @@
 language: java
 jdk:
   - oraclejdk8
+
+sudo: true
+
+services:
+  - docker
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+after_success:
+  - ./gradlew buildDocker
+  - docker login --username=_ --password=$HEROKU_KEY registry.heroku.com
+  - docker push registry.heroku.com/lucas-mastermind-game/web
+
+  - docker push registry.heroku.com/lucas-mastermind-game-dev/web
+  - docker push registry.heroku.com/lucas-mastermind-game-qa/web
