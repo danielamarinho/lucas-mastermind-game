@@ -22,5 +22,5 @@ after_success:
   - docker tag registry.heroku.com/lucas-mastermind-game/web:0.0.1-SNAPSHOT registry.heroku.com/lucas-mastermind-game-dev/web
   - docker push registry.heroku.com/lucas-mastermind-game-dev/web
 
-  - docker tag lucas-mastermind-game registry.heroku.com/lucas-mastermind-game-qa/web
+  - docker tag registry.heroku.com/lucas-mastermind-game/web:0.0.1-SNAPSHOT registry.heroku.com/lucas-mastermind-game-qa/web
   - docker push registry.heroku.com/lucas-mastermind-game-qa/web
