@@ -1,5 +1,4 @@
 package com.mastermind.game.controller;
-
 import com.mastermind.game.models.Player;
 import com.mastermind.game.service.PlayerService;
 import org.junit.Test;
@@ -32,7 +31,6 @@ public class PlayerControllerTest {
 
         assertThat(playerCreated.getId()).isEqualTo(1L);
         assertThat(playerCreated.getName()).isEqualTo("Maria");
-
     }
 
 }
