@@ -1,6 +1,4 @@
-CREATE SCHEMA "master_mind_game_schema";
-
-CREATE TABLE 'master_mind_game_schema'.'player' (
+CREATE TABLE master_mind_game_schema.player (
   id                  SERIAL PRIMARY KEY,
   name                VARCHAR
 );
