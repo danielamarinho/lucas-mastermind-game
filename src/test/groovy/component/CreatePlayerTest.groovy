@@ -1,7 +1,7 @@
 package component
 
 import com.mastermind.game.GameApplication
-import com.mastermind.game.models.PlayerBodyModel
+import com.mastermind.game.models.Player
 import com.mastermind.game.repositories.PlayerRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootContextLoader
@@ -25,10 +25,10 @@ class CreatePlayerTest extends Specification{
     @Autowired
     TestRestTemplate restTemplate;
 
-    def 'should be return player created when give request'() {
+    def 'create and return new player'() {
         given:('I have a new player to register')
 
-        def player = PlayerBodyModel.builder().name("Duda").build().toJson()
+        def player = Player.builder().name("Duda").build();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

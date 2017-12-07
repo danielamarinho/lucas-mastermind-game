@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @Table(name = "player_register", schema = "master_mind_game_schema")
-public class PlayerRegister {
+public class PlayerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "player_register_id_seq")
@@ -22,14 +22,14 @@ public class PlayerRegister {
     private Long id;
     private String name;
 
-    public PlayerRegister(String name) {
+    public PlayerEntity(String name) {
         this.name = name;
     }
 
-    public PlayerRegister() {
+    public PlayerEntity() {
     }
 
-    public PlayerRegister(Long id, String name) {
+    public PlayerEntity(Long id, String name) {
         this.id = id;
         this.name = name;
     }
