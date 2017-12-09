@@ -5,8 +5,7 @@ import org.junit.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class HealthControllerTest {
 
@@ -20,6 +19,6 @@ public class HealthControllerTest {
     @Test
     public void shouldReturnHttpStatusOkWhenHealthIsUp() {
         ResponseEntity<String> httpStatus = this.healthControllerr.getHealth();
-        assertThat(httpStatus.getStatusCode(), is(HttpStatus.OK));
+        assertThat(httpStatus.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

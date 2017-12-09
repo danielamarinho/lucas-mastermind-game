@@ -19,7 +19,6 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'docker'
 apply plugin: 'flyway'
 
-
 group = 'com.mastermind'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -40,13 +39,14 @@ dependencies {
 
     compile('org.postgresql:postgresql:42.0.0')
     compile('commons-dbcp:commons-dbcp:1.4')
-    compile group: 'com.h2database', name: 'h2', version: '1.4.195'
+    compile('com.h2database:h2:jar:1.4.196')
 
     compile('org.json:json:20160810')
 
     testCompile('org.spockframework:spock-spring:1.1-groovy-2.4-rc-3')
     testCompile('org.spockframework:spock-core:1.1-groovy-2.4-rc-3')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.assertj:assertj-core:jar:3.8.0');
 }
 
 task buildDocker(type: Docker, dependsOn: build) {
