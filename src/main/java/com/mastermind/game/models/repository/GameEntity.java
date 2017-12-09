@@ -2,6 +2,7 @@ package com.mastermind.game.models.repository;
 
 import lombok.Getter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,8 @@ public class GameEntity {
             sequenceName = "master_mind_game_schema.game_register_id_seq",
             allocationSize = 1)
     private Long id;
+
+    @Column(name = "player_register_id")
     private Long playerId;
     private int key;
 
