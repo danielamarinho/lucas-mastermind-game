@@ -18,7 +18,7 @@ public class GameService {
 
     public Game createNewGame(Game game) {
 
-        GameEntity gameEntity = gameRepository.save(new GameEntity(game.getId(), game.getPlayerId()));
+        GameEntity gameEntity = gameRepository.save(new GameEntity(game.getPlayerId(), game.generateKey()));
 
         return new Game(gameEntity.getId(), gameEntity.getPlayerId(), gameEntity.getKey());
     }

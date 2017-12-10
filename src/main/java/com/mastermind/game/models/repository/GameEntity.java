@@ -32,6 +32,11 @@ public class GameEntity {
         this.key = key;
     }
 
+    public GameEntity(Long playerId, int key) {
+        this.playerId = playerId;
+        this.key = key;
+    }
+
     public GameEntity(Long id, Long playerId) {
         this.id = id;
         this.playerId = playerId;
