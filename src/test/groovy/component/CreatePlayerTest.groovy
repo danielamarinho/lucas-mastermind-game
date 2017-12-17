@@ -18,6 +18,7 @@ import spock.lang.Specification
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CreatePlayerTest extends Specification{
 
+
     @Autowired
     TestRestTemplate restTemplate;
 
