@@ -9,8 +9,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
-@ContextConfiguration(classes = GameApplication.class,
-        loader = SpringBootContextLoader.class)
+@ContextConfiguration(classes = GameApplication.class, loader = SpringBootContextLoader.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class HealthCheckTest extends Specification{
 
