@@ -19,14 +19,14 @@ spring:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:${JDBC_DATABASE_URL}
+    url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
 ---
 spring:
   profiles: qa
   datasource:
-    url: jdbc:${JDBC_DATABASE_URL}
+    url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
 
@@ -35,6 +35,6 @@ spring:
 spring:
   profiles: prod
   datasource:
-    url: jdbc:${JDBC_DATABASE_URL}
+    url: ${JDBC_DATABASE_URL}
     username: ${JDBC_DATABASE_USERNAME}
     password: ${JDBC_DATABASE_PASSWORD}
