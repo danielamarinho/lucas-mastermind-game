@@ -1,9 +1,6 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/mastermindgame
-    username: postgres
-    password: postgres@123
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: false
@@ -14,27 +11,20 @@ spring:
 ---
 spring:
   profiles: local
+  datasource:
+      url: jdbc:postgresql://localhost:5432/mastermindgame
+      username: postgres
+      password: postgres@123
 
 ---
 spring:
   profiles: dev
-  datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+
 ---
 spring:
   profiles: qa
-  datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
 
 ---
 
 spring:
   profiles: prod
-  datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
