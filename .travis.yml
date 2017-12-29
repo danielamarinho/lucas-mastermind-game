@@ -18,9 +18,13 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     ./gradlew buildDocker;
     docker login --username=_ --password="$HEROKU_KEY" registry.heroku.com;
+
+    docker tag lucas-mastermind-game registry.heroku.com/lucas-mastermind-game/web;
     docker push registry.heroku.com/lucas-mastermind-game/web;
+
     docker tag lucas-mastermind-game registry.heroku.com/lucas-mastermind-game-dev/web;
     docker push registry.heroku.com/lucas-mastermind-game-dev/web;
+
     docker tag lucas-mastermind-game registry.heroku.com/lucas-mastermind-game-qa/web;
     docker push registry.heroku.com/lucas-mastermind-game-qa/web;
     fi
