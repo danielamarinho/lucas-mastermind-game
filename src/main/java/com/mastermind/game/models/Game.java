@@ -2,6 +2,7 @@ package com.mastermind.game.models;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mastermind.game.models.repository.GameEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +27,12 @@ public class Game {
         this.id = id;
         this.playerId = playerId;
         this.key = generateKey();
+    }
+
+    public Game(GameEntity gameEntity) {
+        this.id = gameEntity.getId();
+        this.playerId = gameEntity.getPlayerId();
+        this.key = gameEntity.getKey();
     }
 
     public int generateKey() {

@@ -24,15 +24,13 @@ public class GameServiceTest {
 
     @Test
     public void shouldCreateNewGame(){
-        GameEntity gameSaved = new GameEntity(1L, 1L, 1234);
         Game requestGame = Game.builder().id(1L).playerId(1L).build();
+        GameEntity gameSaved = new GameEntity(requestGame);
 
         when(gameRepository.save(any(GameEntity.class))).thenReturn(gameSaved);
 
         Game game = gameService.createNewGame(requestGame);
 
-        assertThat(game.getId()).isEqualTo(1L);
-        assertThat(game.getPlayerId()).isEqualTo(1L);
-        assertThat(game.getKey()).isEqualTo(1234);
+        assertThat(game).isEqualToComparingFieldByField(requestGame);
     }
 }

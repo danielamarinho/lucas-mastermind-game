@@ -1,5 +1,7 @@
 package com.mastermind.game.models.repository;
 
+import com.mastermind.game.models.Game;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Entity
 @Table(name = "game_register", schema = "master_mind_game_schema")
+@AllArgsConstructor
 public class GameEntity {
 
     @Id
@@ -26,20 +29,11 @@ public class GameEntity {
     private Long playerId;
     private int key;
 
-    public GameEntity(Long id, Long playerId, int key) {
-        this.id = id;
-        this.playerId = playerId;
-        this.key = key;
+    public GameEntity(Game game) {
+     this.id = game.getId();
+     this.playerId = game.getPlayerId();
+     this.key = game.getKey();
     }
 
-    public GameEntity(Long playerId, int key) {
-        this.playerId = playerId;
-        this.key = key;
-    }
-
-    public GameEntity(Long id, Long playerId) {
-        this.id = id;
-        this.playerId = playerId;
-    }
 }
 

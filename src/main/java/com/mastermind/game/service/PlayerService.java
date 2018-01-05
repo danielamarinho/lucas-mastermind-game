@@ -18,8 +18,8 @@ public class PlayerService {
 
     public Player registerNewPlayer(Player player) {
 
-        PlayerEntity playerEntitySave = playerRepository.save(new PlayerEntity(player.getName()));
+        PlayerEntity playerEntitySave = playerRepository.save(new PlayerEntity(player));
 
-        return new Player(playerEntitySave.getId(), playerEntitySave.getName());
+        return new Player(playerEntitySave);
     }
 }

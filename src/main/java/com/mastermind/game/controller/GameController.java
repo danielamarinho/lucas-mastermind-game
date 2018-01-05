@@ -21,7 +21,7 @@ public class GameController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/creatinggame", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/games", produces = MediaType.APPLICATION_JSON_VALUE)
     public Game creatingGame(@RequestBody Game game) {
 
         return gameService.createNewGame(game);

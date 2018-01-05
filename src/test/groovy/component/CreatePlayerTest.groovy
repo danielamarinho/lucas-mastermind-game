@@ -3,6 +3,7 @@ package component
 import com.mastermind.game.GameApplication
 import com.mastermind.game.models.Player
 import com.mastermind.game.repositories.PlayerRepository
+import org.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootContextLoader
 import org.springframework.boot.test.context.SpringBootTest
@@ -14,9 +15,12 @@ import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import spock.lang.Specification
 
+import javax.transaction.Transactional
+
 @ContextConfiguration(classes = GameApplication.class,
         loader = SpringBootContextLoader.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Transactional
 class CreatePlayerTest extends Specification{
 
     @Autowired
@@ -28,16 +32,22 @@ class CreatePlayerTest extends Specification{
     def 'create and return new player'() {
         given:('I have a new player to register')
 
-        def player = Player.builder().name("Duda").build();
+        def player = new Player("Batata").toJson()
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> entity = new HttpEntity<String>(player.toString(),headers);
 
-        when:('I give post in endpoint creatingplayer')
-        def response = restTemplate.postForEntity('/creatingplayer',entity, String.class)
+        when:('I give post in endpoint players')
+        def response = restTemplate.postForEntity('/players',entity, String.class)
 
         then:('I show HttpStatus.CREATED')
         response.statusCode == HttpStatus.CREATED
+
+        and:('I validate response body')
+
+        def playerResponse =  new JSONObject(response.body)
+        playerResponse.id == 1
+        playerResponse.name == "Batata"
     }
 }

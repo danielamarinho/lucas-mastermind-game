@@ -1,5 +1,6 @@
 package com.mastermind.game.models.repository;
 
+import com.mastermind.game.models.Player;
 import lombok.Getter;
 
 import javax.persistence.Entity;
@@ -32,5 +33,10 @@ public class PlayerEntity {
     public PlayerEntity(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public PlayerEntity(Player player) {
+        this.id = player.getId();
+        this.name = player.getName();
     }
 }
