@@ -3,6 +3,7 @@ package com.mastermind.game.models.repository;
 import com.mastermind.game.models.Game;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "game_register", schema = "master_mind_game_schema")
 @AllArgsConstructor
+@NoArgsConstructor
 public class GameEntity {
 
     @Id

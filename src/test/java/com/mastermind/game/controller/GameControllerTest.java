@@ -8,6 +8,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
@@ -32,5 +35,20 @@ public class GameControllerTest {
         assertThat(creatingGame.getId()).isEqualTo(1L);
         assertThat(creatingGame.getPlayerId()).isEqualTo(1L);
         assertThat(creatingGame.getKey()).isEqualTo(1234);
+    }
+
+    @Test
+    public void shouldReturnACurrentGames() throws Exception {
+
+        List<Game> games = new ArrayList<>();
+        games.add(Game.builder().id(1L).playerId(1L).key(4321).build());
+        games.add(Game.builder().id(2L).playerId(2L).key(1234).build());
+
+        when(this.gameService.getCurrentGames()).thenReturn(games);
+
+        List<Game> currentGames = gameController.getGames();
+
+        assertThat(currentGames.get(0)).isEqualToComparingFieldByField(games.get(0));
+        assertThat(currentGames.get(1)).isEqualToComparingFieldByField(games.get(1));
     }
 }

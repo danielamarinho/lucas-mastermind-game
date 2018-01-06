@@ -6,6 +6,8 @@ import com.mastermind.game.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GameService {
 
@@ -18,8 +20,12 @@ public class GameService {
 
     public Game createNewGame(Game game) {
 
-        GameEntity gameEntity = gameRepository.save(new GameEntity(game));
+        return new Game(gameRepository.save(new GameEntity(game)));
+    }
 
-        return new Game(gameEntity);
+    public List<Game> getCurrentGames() {
+
+        return new Game()
+                .builderListGame((List<GameEntity>) gameRepository.findAll());
     }
 }
