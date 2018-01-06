@@ -14,8 +14,6 @@ public class GameEntityTest {
 
         GameEntity gameEntity = new GameEntity(game);
 
-        assertThat(gameEntity.getId()).isEqualTo(game.getId());
-        assertThat(gameEntity.getPlayerId()).isEqualTo(game.getPlayerId());
-        assertThat(gameEntity.getKey()).isEqualTo(game.getKey());
+        assertThat(gameEntity).isEqualToComparingFieldByField(game);
     }
 }

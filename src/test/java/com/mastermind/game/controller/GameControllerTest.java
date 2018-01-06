@@ -27,7 +27,7 @@ public class GameControllerTest {
     @Test
     public void shouldReturnANewGameCreate() {
 
-        Game game = Game.builder().id(1L).playerId(1L).build();
+        Game game = new Game(1L,1L);
         when(this.gameService.createNewGame(any(Game.class))).thenReturn(new Game(1L, 1L,1234));
 
         Game creatingGame = gameController.creatingGame(game);
@@ -41,8 +41,8 @@ public class GameControllerTest {
     public void shouldReturnACurrentGames() throws Exception {
 
         List<Game> games = new ArrayList<>();
-        games.add(Game.builder().id(1L).playerId(1L).key(4321).build());
-        games.add(Game.builder().id(2L).playerId(2L).key(1234).build());
+        games.add(new Game(1L, 1L, 1234));
+        games.add(new Game(2L, 2L, 4321));
 
         when(this.gameService.getCurrentGames()).thenReturn(games);
 

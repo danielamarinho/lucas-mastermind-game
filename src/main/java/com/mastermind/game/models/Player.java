@@ -21,7 +21,6 @@ public class Player {
     private String name;
 
     public Player(PlayerEntity playerEntity) {
-
         this.id = playerEntity.getId();
         this.name = playerEntity.getName();
     }

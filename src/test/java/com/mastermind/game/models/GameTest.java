@@ -26,9 +26,7 @@ public class GameTest {
         GameEntity gameEntity = new GameEntity(1L, 1L, 1234);
         Game game = new Game(gameEntity);
 
-        assertThat(game.getId()).isEqualTo(gameEntity.getId());
-        assertThat(game.getPlayerId()).isEqualTo(gameEntity.getPlayerId());
-        assertThat(game.getKey()).isEqualTo(gameEntity.getKey());
+        assertThat(game).isEqualToComparingFieldByField(gameEntity);
     }
 
     @Test
@@ -40,12 +38,7 @@ public class GameTest {
 
         List<Game> games = new Game().builderListGame(gameEntities);
 
-        assertThat(games.get(0).getId()).isEqualTo(gameEntities.get(0).getId());
-        assertThat(games.get(0).getPlayerId()).isEqualTo(gameEntities.get(0).getPlayerId());
-        assertThat(games.get(0).getKey()).isEqualTo(gameEntities.get(0).getKey());
-
-        assertThat(games.get(1).getId()).isEqualTo(gameEntities.get(1).getId());
-        assertThat(games.get(1).getPlayerId()).isEqualTo(gameEntities.get(1).getPlayerId());
-        assertThat(games.get(1).getKey()).isEqualTo(gameEntities.get(1).getKey());
+        assertThat(games.get(0)).isEqualToComparingFieldByField(gameEntities.get(0));
+        assertThat(games.get(1)).isEqualToComparingFieldByField(gameEntities.get(1));
     }
 }

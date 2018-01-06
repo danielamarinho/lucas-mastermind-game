@@ -14,7 +14,6 @@ public class PlayerEntityTest {
         Player player = new Player(1L,"Batata");
         PlayerEntity playerEntity = new PlayerEntity(player);
 
-        assertThat(playerEntity.getId()).isEqualTo(player.getId());
-        assertThat(playerEntity.getName()).isEqualTo(player.getName());
+        assertThat(playerEntity).isEqualToComparingFieldByField(player);
     }
 }

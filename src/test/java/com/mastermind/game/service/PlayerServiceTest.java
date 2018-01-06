@@ -26,17 +26,14 @@ public class PlayerServiceTest {
     public void shouldRecordNewCarOnDatabase() {
         //preparacao
         PlayerEntity savedPlayer = new PlayerEntity(1L, "Batata");
-        Player requestPlayer = Player
-                .builder()
-                .name("Joaquim")
-                .build();
+        Player requestPlayer = new Player("Joaquim");
+
         when(playerRepository.save(any(PlayerEntity.class))).thenReturn(savedPlayer);
 
         //acao
         Player playerCreated = playerService.registerNewPlayer(requestPlayer);
 
         //esperado
-        assertThat(playerCreated.getId()).isEqualTo(1L);
-        assertThat(playerCreated.getName()).contains("Batata");
+        assertThat(playerCreated).isEqualToComparingFieldByField(savedPlayer);
     }
 }

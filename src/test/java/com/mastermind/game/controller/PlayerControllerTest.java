@@ -24,7 +24,7 @@ public class PlayerControllerTest {
     @Test
     public void shouldReturnSuccessWhenCreateANewPlayer() {
 
-        Player player = Player.builder().name("Maria").build();
+        Player player = new Player("Maria");
 
         when(this.playerService.registerNewPlayer(any(Player.class))).thenReturn(new Player(1L,"Maria"));
 

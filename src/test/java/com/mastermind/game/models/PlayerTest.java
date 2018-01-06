@@ -13,7 +13,6 @@ public class PlayerTest {
         PlayerEntity playerEntity = new PlayerEntity(1L, "Batata");
         Player player = new Player(playerEntity);
 
-        assertThat(player.getId()).isEqualTo(playerEntity.getId());
-        assertThat(player.getName()).isEqualTo(playerEntity.getName());
+        assertThat(player).isEqualToComparingFieldByField(playerEntity);
     }
 }
