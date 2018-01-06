@@ -28,9 +28,7 @@ class CreateNewGameTest extends Specification{
     def 'create and return new game'() {
         given:('I have a new game to register')
 
-        def game = new Game(null, 1L)
-                .toJson()
-                .toString()
+        def game = new Game(null, 1L).toJson().toString()
 
         HttpHeaders headers = new HttpHeaders()
         headers.setContentType(MediaType.APPLICATION_JSON)

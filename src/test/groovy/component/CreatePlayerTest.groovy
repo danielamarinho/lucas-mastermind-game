@@ -32,11 +32,11 @@ class CreatePlayerTest extends Specification{
     def 'create and return new player'() {
         given:('I have a new player to register')
 
-        def player = new Player("Batata").toJson()
+        def player = new Player("Batata").toJson().toString()
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<String> entity = new HttpEntity<String>(player.toString(),headers);
+        HttpHeaders headers = new HttpHeaders()
+        headers.setContentType(MediaType.APPLICATION_JSON)
+        HttpEntity<String> entity = new HttpEntity<String>(player, headers)
 
         when:('I give post in endpoint players')
         def response = restTemplate.postForEntity('/players',entity, String.class)
