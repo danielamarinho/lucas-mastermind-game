@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -37,23 +37,17 @@ public class Game {
         this.key = gameEntity.getKey();
     }
 
+    public List<Game> builderListGame(List<GameEntity> gameEntities) {
 
-    public int generateKey() {
-        this.key = 1000 + (new Random()).nextInt(8999) ;
-        return this.key;
+        return gameEntities.stream().map(Game::new).collect(Collectors.toList());
     }
 
     public JSONObject toJson() throws JsonProcessingException {
         return new JSONObject(new ObjectMapper().writeValueAsString(this));
     }
 
-    public List<Game> builderListGame(List<GameEntity> gameEntities) {
-
-        List<Game> games = new ArrayList<>();
-        for (GameEntity gameEntity: gameEntities) {
-            games.add(new Game(gameEntity));
-        }
-
-        return games;
+    private int generateKey() {
+        this.key = 1000 + (new Random()).nextInt(8999) ;
+        return this.key;
     }
 }
