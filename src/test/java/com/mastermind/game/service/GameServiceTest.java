@@ -1,6 +1,7 @@
 package com.mastermind.game.service;
 
 import com.mastermind.game.models.Game;
+import com.mastermind.game.models.ListGame;
 import com.mastermind.game.models.repository.GameEntity;
 import com.mastermind.game.repositories.GameRepository;
 import org.junit.Test;
@@ -49,9 +50,9 @@ public class GameServiceTest {
 
         when(gameRepository.findAll()).thenReturn(gameEntities);
 
-        List<Game> games = gameService.getCurrentGames();
+        ListGame games = gameService.getCurrentGames();
 
-        assertThat(games.get(0)).isEqualToComparingFieldByField(gameOne);
-        assertThat(games.get(1)).isEqualToComparingFieldByField(gameTwo);
+        assertThat(games.getGames().get(0)).isEqualToComparingFieldByField(gameOne);
+        assertThat(games.getGames().get(1)).isEqualToComparingFieldByField(gameTwo);
     }
 }

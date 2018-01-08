@@ -27,14 +27,14 @@ class GetCurretGamesTest extends Specification{
     def 'Get current games'() {
         given:('I creted two news games')
 
-        def gameOne = new Game(null, 1L).toJson().toString()
-        def gameTwo = new Game(null, 2L).toJson().toString()
+        def gameOne = new Game(null, 1L)
+        def gameTwo = new Game(null, 2L)
 
         HttpHeaders headers = new HttpHeaders()
         headers.setContentType(MediaType.APPLICATION_JSON)
 
-        HttpEntity<String> entityOne = new HttpEntity<String>(gameOne, headers)
-        HttpEntity<String> entityTwo = new HttpEntity<String>(gameTwo, headers)
+        HttpEntity<Game> entityOne = new HttpEntity<>(gameOne, headers)
+        HttpEntity<Game> entityTwo = new HttpEntity<>(gameTwo, headers)
 
         restTemplate.postForEntity('/games', entityOne, String.class)
         restTemplate.postForEntity('/games', entityTwo, String.class)

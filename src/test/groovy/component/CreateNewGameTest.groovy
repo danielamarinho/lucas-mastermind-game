@@ -28,11 +28,11 @@ class CreateNewGameTest extends Specification{
     def 'create and return new game'() {
         given:('I have a new game to register')
 
-        def game = new Game(null, 1L).toJson().toString()
+        def game = new Game(null, 1L)
 
         HttpHeaders headers = new HttpHeaders()
         headers.setContentType(MediaType.APPLICATION_JSON)
-        HttpEntity<String> entity = new HttpEntity<String>(game, headers)
+        HttpEntity<Game> entity = new HttpEntity<>(game, headers)
 
         when:('I give post in endpoint games')
         def response = restTemplate.postForEntity('/games', entity, String.class)

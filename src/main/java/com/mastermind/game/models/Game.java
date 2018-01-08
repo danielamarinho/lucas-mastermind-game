@@ -1,18 +1,13 @@
 package com.mastermind.game.models;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mastermind.game.models.repository.GameEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.json.JSONObject;
 
-import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -35,15 +30,6 @@ public class Game {
         this.id = gameEntity.getId();
         this.playerId = gameEntity.getPlayerId();
         this.key = gameEntity.getKey();
-    }
-
-    public List<Game> builderListGame(List<GameEntity> gameEntities) {
-
-        return gameEntities.stream().map(Game::new).collect(Collectors.toList());
-    }
-
-    public JSONObject toJson() throws JsonProcessingException {
-        return new JSONObject(new ObjectMapper().writeValueAsString(this));
     }
 
     private int generateKey() {

@@ -1,15 +1,13 @@
 package com.mastermind.game.controller;
 
 import com.mastermind.game.models.Game;
+import com.mastermind.game.models.ListGame;
 import com.mastermind.game.service.GameService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
@@ -40,15 +38,15 @@ public class GameControllerTest {
     @Test
     public void shouldReturnACurrentGames() throws Exception {
 
-        List<Game> games = new ArrayList<>();
-        games.add(new Game(1L, 1L, 1234));
-        games.add(new Game(2L, 2L, 4321));
+        ListGame listGame = new ListGame();
+        listGame.getGames().add(new Game(1L, 1L, 1234));
+        listGame.getGames().add(new Game(2L, 2L, 4321));
 
-        when(this.gameService.getCurrentGames()).thenReturn(games);
+        when(this.gameService.getCurrentGames()).thenReturn(listGame);
 
-        List<Game> currentGames = gameController.getGames();
+        ListGame currentGames = gameController.getGames();
 
-        assertThat(currentGames.get(0)).isEqualToComparingFieldByField(games.get(0));
-        assertThat(currentGames.get(1)).isEqualToComparingFieldByField(games.get(1));
+        assertThat(currentGames.getGames().get(0)).isEqualToComparingFieldByField(listGame.getGames().get(0));
+        assertThat(currentGames.getGames().get(1)).isEqualToComparingFieldByField(listGame.getGames().get(1));
     }
 }
