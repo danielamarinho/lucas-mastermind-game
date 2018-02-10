@@ -2,6 +2,7 @@ package com.mastermind.game.models.repository;
 
 import com.mastermind.game.models.Player;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
+@NoArgsConstructor
 @Table(name = "player_register", schema = "master_mind_game_schema")
 public class PlayerEntity {
 
@@ -22,13 +24,6 @@ public class PlayerEntity {
             allocationSize = 1)
     private Long id;
     private String name;
-
-    public PlayerEntity(String name) {
-        this.name = name;
-    }
-
-    public PlayerEntity() {
-    }
 
     public PlayerEntity(Long id, String name) {
         this.id = id;

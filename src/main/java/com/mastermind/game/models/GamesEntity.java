@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class ListGameEntity {
+public class GamesEntity {
 
     private List<GameEntity> gameEntities;
 
-    public ListGameEntity(Iterable<GameEntity> gameEntities) {
+    public GamesEntity(Iterable<GameEntity> gameEntities) {
         this.gameEntities = (List<GameEntity>) gameEntities;
     }
 
-    public ListGameEntity() {
+    public GamesEntity() {
         this.gameEntities = new ArrayList<>();
     }
 }

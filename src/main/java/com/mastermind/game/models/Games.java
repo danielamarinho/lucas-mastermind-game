@@ -8,17 +8,19 @@ import java.util.stream.Collectors;
 
 
 @Getter
-public class ListGame {
+public class Games {
 
     private List<Game> games;
 
 
-    public ListGame() {
+    public Games() {
         this.games = new ArrayList<>();
     }
 
-    public ListGame(ListGameEntity listGameEntity) {
-        this.games = listGameEntity.getGameEntities().stream().map(Game::new).collect(Collectors.toList());
+    public Games(GamesEntity gamesEntity) {
+        this.games = gamesEntity.getGameEntities().stream()
+                .map(Game::new)
+                .collect(Collectors.toList());
     }
 }
 

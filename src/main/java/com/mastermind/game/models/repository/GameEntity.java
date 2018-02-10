@@ -15,9 +15,9 @@ import javax.persistence.Table;
 
 @Getter
 @Entity
-@Table(name = "game_register", schema = "master_mind_game_schema")
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "game_register", schema = "master_mind_game_schema")
 public class GameEntity {
 
     @Id
@@ -32,10 +32,11 @@ public class GameEntity {
     private int key;
 
     public GameEntity(Game game) {
-     this.id = game.getId();
-     this.playerId = game.getPlayerId();
-     this.key = game.getKey();
+        this.id = game.getId();
+        this.playerId = game.getPlayerId();
+        this.key = game.getKey();
     }
 
 }
+
 

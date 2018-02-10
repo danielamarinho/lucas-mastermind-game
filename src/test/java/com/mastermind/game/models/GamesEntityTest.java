@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ListGameEntityTest {
+public class GamesEntityTest {
 
     @Test
     public void shouldBuildListGameEntityFromListGame() throws Exception {
@@ -17,10 +17,10 @@ public class ListGameEntityTest {
         gameEntities.add(new GameEntity(1L, 1L, 1234));
         gameEntities.add(new GameEntity(2L, 2L, 4321));
 
-        ListGameEntity listGameEntity = new ListGameEntity(gameEntities);
+        GamesEntity gamesEntity = new GamesEntity(gameEntities);
 
-        assertThat(listGameEntity.getGameEntities().get(0)).isEqualToComparingFieldByField(gameEntities.get(0));
-        assertThat(listGameEntity.getGameEntities().get(1)).isEqualToComparingFieldByField(gameEntities.get(1));
+        assertThat(gamesEntity.getGameEntities().get(0)).isEqualToComparingFieldByField(gameEntities.get(0));
+        assertThat(gamesEntity.getGameEntities().get(1)).isEqualToComparingFieldByField(gameEntities.get(1));
     }
 
 }

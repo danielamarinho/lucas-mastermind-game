@@ -20,7 +20,7 @@ import javax.transaction.Transactional
         loader = SpringBootContextLoader.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
-class CreateNewGameTest extends Specification{
+class CreateNewGameTest extends Specification {
 
     @Autowired
     TestRestTemplate restTemplate;

@@ -1,8 +1,8 @@
 package com.mastermind.game.service;
 
 import com.mastermind.game.models.Game;
-import com.mastermind.game.models.ListGame;
-import com.mastermind.game.models.ListGameEntity;
+import com.mastermind.game.models.Games;
+import com.mastermind.game.models.GamesEntity;
 import com.mastermind.game.models.repository.GameEntity;
 import com.mastermind.game.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +23,8 @@ public class GameService {
         return new Game(gameRepository.save(new GameEntity(game)));
     }
 
-    public ListGame getCurrentGames() {
+    public Games getCurrentGames() {
 
-        return new ListGame(new ListGameEntity(gameRepository.findAll()));
+        return new Games(new GamesEntity(gameRepository.findAll()));
     }
 }

@@ -2,18 +2,12 @@ package com.mastermind.game.models;
 
 import com.mastermind.game.models.repository.GameEntity;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.util.Random;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
-@Builder
-@ToString
 public class Game {
 
     private Long id;

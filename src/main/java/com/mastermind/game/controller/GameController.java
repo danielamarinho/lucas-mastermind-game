@@ -1,7 +1,7 @@
 package com.mastermind.game.controller;
 
 import com.mastermind.game.models.Game;
-import com.mastermind.game.models.ListGame;
+import com.mastermind.game.models.Games;
 import com.mastermind.game.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +31,7 @@ public class GameController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/games", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ListGame getGames() {
+    public Games getGames() {
         return gameService.getCurrentGames();
     }
 }
